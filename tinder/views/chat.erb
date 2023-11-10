@@ -1,0 +1,57 @@
+<div class="bodyy">
+  <div id="app">
+    <div class="top">
+      <div class="logo">
+        <img src="<%= @matched.image_url %>">
+      </div>
+      <a class="vvideo_link" href="/video"><i class="fas fa-video"></i></a>
+      <div class="fname">
+        <h4><a href='/<%= @matched.id %>/friend_profile'><%= @matched.name%></a></h3>
+      </div>
+    </div>
+    
+  <% @chat.each do |chat|%>
+    <% if chat.user_id == @matched.id %>
+      <div class="message-group-received">
+      <div>
+        <img src="<%= @matched.image_url %>">
+      </div>
+      <div>
+        <div class="message-received">
+          <div class="message-received-text">
+            <%= chat.text %>
+          </div>
+        </div>
+      </div>
+      </div>
+    <% else %>
+      <div class="message-group-sent">
+      <div class="message-sent">
+        <div class="message-sent-text">
+          <%= chat.text %>
+        </div>
+        <div class="message-sent-status"></div>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+    
+    <!--sent-->
+    
+<div class="box">
+  <form action="/<%= @matched.id %>/chat" method="post" autocomplete:"off" 
+  class="textf">
+    <input type="text" name="text" autocomplete:"off"
+    placeholder="Message..."
+    aria-label="text" 
+    class="text"required>
+    <button type="submit">
+      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    </button>
+  </form>
+</div>
+
+
+  </div>
+</div>
+  

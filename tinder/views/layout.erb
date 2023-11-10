@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tinder Ver:Friendly </title>
+    <link rel="stylesheet" href="/assets/stylesheets/style.css">
+    <script src="https://cdn.webrtc.ecl.ntt.com/skyway-4.4.4.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aa039ccbb0.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f013.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Rubik:wght@500&family=Ubuntu&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo"><a class="logo" href="/">GamrZ Tinder</a></label>
+      <% if session[:user] %>
+      <ul>
+        <li><a href="/profile" class="nav-profile"><%= User.find(session[:user]).name %>'s Profile</a>
+        <li><a href="/setting" class="setting">
+          <i class="fa fa-cog" aria-hidden="true"></i>
+        </a></li>
+        <li>
+          <div class="notiflication">
+            <a href="/matching_page" class="noti">
+            <i class="fas fa-bell"></i>
+            <% if @matching.count > 0 %>
+              <span class="num"><%= @matching.count %></span>
+            <% end %>
+            </a>
+          </div>
+        </li>
+        <li><a href="/signout" class="logout">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          </a></li>
+      </ul>
+    </nav>
+      <% end %>
+    <section>
+    <%= yield %>
+    </section>
+  </body>
+</html>

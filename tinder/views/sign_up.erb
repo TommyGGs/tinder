@@ -1,0 +1,74 @@
+<div class="bodyyy">
+  <div class="wrapper">
+    <div class="titlee">
+      GamrZ Tinder
+    </div>
+    <div class="formm">
+      <form action="/signup" method="post" autocomplete="off">
+        <div class="input_field">
+          <label>ユーザーネーム</label>
+          <input type="text" name="name" class="inputt"><br>
+        </div>
+        <div class="input_field">
+          <label>*メール</label>
+          <input type="text" name="mail" placeholder="フォーマットを____＠____にしよう" class="inputt" required>
+        </div>
+        <div class="input_field">
+          <label>*パスワード</label>
+          <input type="password" name="password" placeholder="アルファベットと数字を入れよう" class="inputt" required>
+        </div>
+        <div class="input_field">
+          <label>*パスワード確認</label>
+          <input type="password" name="password_confimation" class="inputt" required>
+        </div>
+        <div class="input_field">
+          <label>ゲーム</label>
+          <div class="custom_select">
+            <select name="game" class="inputt">
+              <option value="Fortnite">Fortnite</option>
+              <option value="Apex">Apex</option>
+              <option value="Valorant">Valorant</option>
+              <option value="PokemonGo">PokemonGo</option>
+              <option value="Rocket League">Rocket League</option>
+              <option value="League of Legends">League of Legends</option>
+              <option value="どうぶつの森">どうぶつの森</option>
+            </select>
+          </div>
+        </div>
+        <div class="input_field">
+          <label>ランク</label>
+          <input type="text" name="rank" placeholder="ゲームのランク" class="inputt">
+        </div>
+        <div class="input_field">
+          <label>性別</label>
+          <div class="custom_select">
+            <select name="gender">
+              <option value="men">男</option>
+              <option value="women">女</option>
+              <option value="others">言わないw</option>
+            </select>
+          </div>
+        </div>
+        <div class="input_field">
+          <label>プロフィール画像のurl</label>
+          <input type="image_url" name="image_url" class="inputt">
+        </div>
+        <!--<label for="imgage_url">画像を選択:</label>-->
+        <!--<input type="file" id="image_url" name="image_url" -->
+        <!--accept="image/*">-->
+      　<div class="text">
+          <label>プロフィール</label>
+          <input type="text" name="profile" class="inputt">
+        </div>
+        *年齢：正数にしよう<br>
+        <div class="input_field">
+          <label>*年齢</label>
+          <input type="number" name="age" placeholder="正数" required>
+        </div>
+        <div class="inputfield">
+          <input type="submit" value="新規登録" class="btnn">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

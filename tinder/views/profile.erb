@@ -1,0 +1,20 @@
+<% me = User.find(session[:user]) %>
+<div class="container">
+		<div class="profile-box">
+			  <img class="profile-pic" src="<%= me.image_url %>" alt="Thumbnail Image 1">
+			  <div class="caption">
+			  	<div class="profile">
+			  	<div class="pprofile">
+				   <h3><%= me.name %></h3>
+				    <p class="game title">Game: </p><p class="game desc"><%= me.game %></p><br>
+				 		<p class="rank title">Rank:</p><p class="rank desc"><%= me.rank %></p><br>
+				 		<p class="gender title">Gender:</p><p class="gender desc"><%= me.gender %></p><br>
+				 		<p class="age title">Age:</p><p class="age desc"><%= me.age %></p><br>
+				 		<p class="title"><%= me.profile %></p>
+			 		</div>
+			 	</div>
+					<a href="/profile_edit" class="editp">Edit profile</a>
+				</div>
+			</div>
+	</div>
+	  			

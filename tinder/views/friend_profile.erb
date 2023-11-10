@@ -1,0 +1,25 @@
+<div class="container">
+		<div class="profile-box">
+			  <img class="profile-pic" src="<%= @friend.image_url %>" alt="Thumbnail Image 1">
+			  <div class="caption">
+			  	<div class="profile">
+			  	<div class="pprofile">
+				   <h3><%= @friend.name %></h3>
+				    <p class="game title">Game: </p><p class="game desc"><%= @friend.game %></p><br>
+				 		<p class="rank title">Rank:</p><p class="rank desc"><%= @friend.rank %></p><br>
+				 		<p class="gender title">Gender:</p><p class="gender desc"><%= @friend.gender %></p><br>
+				 		<p class="age title">Age:</p><p class="age desc"><%= @friend.age %></p><br>
+				 		<p class="title"><%= @friend.profile %></p>
+			 		</div>
+			 	</div>
+			 
+		<form action="/matching/<%= @friend.id %>/delete" method="post">
+		 <button class="block">
+			Block<i class="fas fa-ban"></i>
+		</button>
+		</form>
+		<a class="chat" href="/<%= @friend.id %>/chat"><i class="fas fa-comment-dots"></i></a>
+		<a class="video_link" href="/video"><i class="fas fa-video"></i></a>
+		</div>
+	</div>
+</div>	 

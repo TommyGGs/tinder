@@ -1,0 +1,48 @@
+<section>
+	<% if !session[:user] %>
+      <div class="bbtn">
+       <a href="/signin" class="log">login</a>
+	     <a href="/signup" class="log">signup</a>
+	   </div>
+	<% end %>
+
+<% if session[:user] %>
+<% if @user_notexist == true %>
+	<h1>ちょっとお待ちください</h1>
+<% else %>
+	<div class="container">
+		<div class="profile-box">
+			  <img class="profile-pic" src="<%= @user.image_url %>" alt="Thumbnail Image 1">
+			  <div class="caption">
+			  	<div class="profile">
+				   <h3><%= @user.name %></h3>
+				    <p class="game title">Game: </p><p class="game desc"><%= @user.game %></p><br>
+				 		<p class="rank title">Rank:</p><p class="rank desc"><%= @user.rank %></p><br>
+				 		<p class="gender title">Gender:</p><p class="gender desc"><%= @user.gender %></p><br>
+				 		<p class="age title">Age:</p><p class="age desc"><%= @user.age %></p><br>
+				 		<p class="title"><%= @user.profile %></p>
+			 		</div>
+					 <% if Match.find_by(choosen_user_id: @user.id, user_id: session[:user])%>
+						<form action="/matching/<%= @user.id %>/delete" method="post">
+							<button>追加を解除</button>
+						</form>
+					 <% else %>
+					 	<div class="rgb">
+							  <form method="post" action="/<%=@user.id %>/not_choose">
+									<button type="submit" class="btn red-button">
+										<i class="fa fa-close"></i>
+									</button>
+								</form>
+							  <form method="post" action="/<%= @user.id %>/choose">
+									<button type="submit" class="btn green-button">
+										<i class="fa fa-check" aria-hidden="true"></i>
+									</button>
+							  </form>
+							</div>
+					 <% end %>
+				</div>
+			</div>
+	</div>
+<% end %>
+<% end %>
+</section>

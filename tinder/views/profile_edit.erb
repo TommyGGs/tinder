@@ -1,0 +1,39 @@
+<form action="/profile_edit" method="post">
+  <select name="game">
+    <% @user_game.each do |user_game| %>
+      <% if @user.game == nil %>
+        <option value="<%= user_game %>" 
+          <% if user_game == "all" %>
+            selected
+          <% end %>><%= user_game%></option>
+      <% else %>
+          <option value="<%= user_game%>" 
+            <% if @user.game == user_game %>
+              selected
+            <% end %> ><%= user_game%></option>
+      <% end %>
+    <% end %>
+  </select><br>
+  <input type="text" name="rank" placeholder="ゲームのランク" value="<%= @user.rank%>"required><br>
+  <select name="gender">
+  <% if @user.gender == nil %>
+    <option value="both" selected>どちらでも</option>
+    <option value="men">男</option>
+    <option value="women">女</option>
+    <option value="others">言わないw</option>
+  <% else %>
+    <% @user_gender.each do |user_gender| %>
+      <option value="<%= user_gender%>" 
+      <% if @user.gender == user_gender %>
+        selected
+      <% end %> ><%= user_gender%></option>
+    <% end %>
+  <% end %>
+  </select><br>
+ <input type="image_url" name="image_url" 
+          placeholder="プロフィール画像" required><br>
+　<input type="text" name="profile" required
+        placeholder="プロフィール" value="<%= @user.profile%>"><br>
+  <input type="number" name="age" placeholder="年齢" value="<%= @user.age %>"required><br>
+  <input type="submit" value="プロフィール登録" >
+</form>

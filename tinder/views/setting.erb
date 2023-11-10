@@ -1,0 +1,48 @@
+<div class="container1">
+  <h1 class="h11">FILTER</h1>
+  <% setting = Setting.find_by(user_id: session[:user]) %>
+    <form class="formm" action="/setting/" method="post">
+      GENDER：
+    <div class="select-box">
+      <select name="gender">
+    <% if setting.gender == nil %>
+      <option value="both" selected>both</option>
+      <option value="men">men</option>
+      <option value="women">women</option>
+      <option value="others">others</option>
+    <% else %>
+      <% @setting_gender.each do |setting_gender| %>
+        <option value="<%= setting_gender%>" 
+        <% if setting.gender == setting_gender %>
+          selected
+        <% end %> ><%= setting_gender%></option>
+      <% end %>
+    <% end %>
+      </select>
+    </div>
+    GAME：
+    <div class="select-box">
+      <select name="game">
+    
+    <% if setting.game == nil %>
+      <option value="all" selected>all</option>
+      <option value="Fortnite">Fortnite</option>
+      <option value="Apex">Apex</option>
+      <option value="Valorant">Valorant</option>
+      <option value="PokemonGo">PokemonGo</option>
+      <option value="Rocket League">Rocket League</option>
+      <option value="League of Legends">League of Legends</option>
+      <option value="どうぶつの森">どうぶつの森</option>
+    <% else %>
+      <% @setting_game.each do |setting_game| %>
+        <option value="<%= setting_game%>" 
+          <% if setting.game == setting_game %>
+            selected
+          <% end %> ><%= setting_game%></option>
+      <% end %>
+    <% end %>
+    </select>
+    </div>
+    <input type="submit" value="SAVE">
+  </form>
+</div>

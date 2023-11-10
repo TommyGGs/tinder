@@ -1,0 +1,55 @@
+<!--<div class="textt">-->
+<!--	<p class="normal">You have matched with -->
+<!--	<p class="red"><%= @matching.count %></p> people</p>-->
+<!--</div>-->
+			<main>
+				<div class="list">
+		<% if @matching %>
+		<% @matching.each do |matching|%>
+			<% matched = User.find(matching) %>
+					<div class="line">
+						<div class="user">
+							<div class="profile">
+								<img src="<%= matched.image_url %>">
+							</div>
+							<div class="details">
+								<h1 class="name"><%= matched.name %></h1>
+								<h3 class="username"><%= matched.mail %></h3>
+							</div>
+						</div>
+						<div class="status">
+							<span></span>
+							<p>matched</p>
+						</div>
+						<div class="chatt">
+							<p><a href="/<%= matched.id %>/chat">
+								<i class="fas fa-comment-dots"></i>
+							</a></p>
+						</div>
+						<div class="vvideo">
+							<p><a href="/video">
+								<i class="fas fa-video"></i>
+							</a></p>
+						</div>
+						<div class="contact">
+							<p>
+						<form action="/matching/<%= matched.id %>/delete" method="post">
+					 <button>
+						Block<i class="fas fa-ban"></i>
+					</button>
+					</form>
+							</p>
+						</div>
+						<div class="action">
+							<div class="icon">
+								<!--<span></span>-->
+								<!--<span></span>-->
+								<!--<span></span>-->
+							</div>
+						</div>
+					</div>
+					<% end %>
+<% end %>
+				</div>
+			</main>
+	
